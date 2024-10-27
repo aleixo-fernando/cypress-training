@@ -8,20 +8,23 @@
 
 describe('Cypress Playground',() => {
 
-    it('Clicando em um botão',()=>{
+    it('02 - Acessando o site',() =>{
+
+      })
+
+    //Testando formas de clicar em um botão e checando resultado
+    it('03 - Clicando em um botão',()=>{
     cy.contains('button','Subscribe').click()
     cy.get('button[type="submit"]').click()
     cy.contains(`You've been successfully subscribed to our newsletter.`)
         })
 
-    it('Realize Login com sucesso',() =>{
-      //Teste de Login aqui
-      //
-    })
-
-    it('Realize Logout com sucesso',() =>
-        {
-        //Teste de Logout aqui
+    //Testando formas de acessar textbox e checando resultado
+    it(' 04 - Escrevendo em uma textbox',()=>{
+        cy.get('textarea')
+        cy.get('#signature-textarea').type('Teste de escrita')
+        cy.get('#signature').contains('Teste de escrita')
         })
+
 
 })

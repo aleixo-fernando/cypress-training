@@ -6,10 +6,11 @@
        })
          
 
-describe('Cypress Playground Aulas',() => {
+describe('Cypress Playground',() => {
 
     it('Realize Login com sucesso',() =>{
       //Teste de Login aqui
+      //
     })
 
     it('Realize Logout com sucesso',() =>

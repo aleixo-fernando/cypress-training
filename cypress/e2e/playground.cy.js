@@ -8,6 +8,12 @@
 
 describe('Cypress Playground',() => {
 
+    it('Clicando em um botão',()=>{
+    cy.contains('button','Subscribe').click()
+    cy.get('button[type="submit"]').click()
+    cy.contains(`You've been successfully subscribed to our newsletter.`)
+        })
+
     it('Realize Login com sucesso',() =>{
       //Teste de Login aqui
       //

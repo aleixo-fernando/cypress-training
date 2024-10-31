@@ -26,5 +26,11 @@ describe('Cypress Playground',() => {
         cy.get('#signature').contains('Teste de escrita')
         })
 
+    //Testando checkbox
+    it(' 05 - Usando checkbox',() =>{
+        cy.get('input[type="checkbox"]').check()
+        cy.get('#on-off').should('have.text','ON')        
+    })
+
 
 })

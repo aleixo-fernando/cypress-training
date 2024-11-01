@@ -32,5 +32,34 @@ describe('Cypress Playground',() => {
         cy.get('#on-off').should('have.text','ON')        
     })
 
+    //Testando radio
+    it(' 06 - Usando checkbox',() =>{
+        cy.get('input[type="radio"]').check()
+        cy.get('#on-off').should('have.text','OFF')        
+    })
 
+    it('07 - Select form',()=>{
+        cy.get('#selection-type').select('Basic')
+        //Selecionando por índice
+        cy.get('#selection-type').select(3)
+        cy.get('#select-selection').should('contain','VIP')
+        var variavel 
+        cy.get('#selection-type').find('option:selected').invoke('text').then((text)=>{
+            cy.log(text)
+            variavel = text
+            cy.get('#select-selection').should('have.text',`You've selected: ${variavel}`)
+        })
+    })
+
+    it('08 - Selecionando arrays',()=>{
+        
+        let fruits = ["apple", "banana", "cherry"];
+        cy.get('select[multiple]').select([`${fruits[0]}`,`${fruits[1]}`,`${fruits[2]}`])
+        cy.get('#fruits-paragraph').should('have.text',`You've selected the following fruits: ${fruits[0]}, ${fruits[1]}, ${fruits[2]}`)
+    })
+    
+    it('09 - Upload de arquivos',()=>{
+        cy.get('#file-upload').selectFile('cypress/fixtures/example.json')
+        cy.get('#file').should('have.text','The following file has been selected for upload: example.json')
+    })
 })
